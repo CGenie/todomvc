@@ -1,0 +1,82 @@
+name:                todomvc
+version:             0.1.0.0
+github:              "githubuser/todomvc"
+license:             BSD3
+author:              "Przemek Kamiński"
+maintainer:          "cgenie@gmail.com"
+copyright:           "Przemek Kamiński"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+ghc-options: -Wall -Wincomplete-patterns -Wincomplete-uni-patterns -Wredundant-constraints
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/CGenie/todomvc#readme>
+
+default-extensions:
+  - EmptyCase
+  - FlexibleContexts
+  - FlexibleInstances
+  - InstanceSigs
+  - MultiParamTypeClasses
+  - LambdaCase
+  - MultiWayIf
+  - NamedFieldPuns
+  - TupleSections
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - DerivingStrategies
+  - GeneralizedNewtypeDeriving
+  - StandaloneDeriving
+  - BangPatterns
+  - KindSignatures
+  - TypeOperators
+  - OverloadedStrings
+  - ScopedTypeVariables
+  - TypeApplications
+  - ConstraintKinds
+  - RankNTypes
+  #- ApplicativeDo
+  - DefaultSignatures
+  - PatternSynonyms
+
+  - TemplateHaskell  # lens
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  todomvc-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - todomvc
+
+tests:
+  todomvc-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - todomvc
