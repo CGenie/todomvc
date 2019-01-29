@@ -1,6 +1,6 @@
 module Main where
 
-import Server (run)
+import Todomvc.Server (run)
 
 main :: IO ()
 main = run
